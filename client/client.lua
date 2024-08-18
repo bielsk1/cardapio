@@ -4,11 +4,11 @@ cRP.Open = function()
     SendNUIMessage({
         action = "open"
     })
-	newspaper = CreateObject(GetHashKey("prop_cliff_paper"), 0, 0, 0, true, true, true)
+	cardapiopaper = CreateObject(GetHashKey("prop_cliff_paper"), 0, 0, 0, true, true, true)
 	RequestAnimDict("missfam4")
 	while not HasAnimDictLoaded("missfam4") do Citizen.Wait(5) end
 	TaskPlayAnim(PlayerPedId(), "missfam4", "base", 3.0, 2.0, -1, 33, 0.0, false, false, false)
-	AttachEntityToEntity(newspaper, PlayerPedId(), GetPedBoneIndex(GetPlayerPed(-1), 18905), 0.26, 0.06, 0.16, 320.0, 310.0, 0.0, true, true, false, true, 1, true)
+	AttachEntityToEntity(cardapiopaper, PlayerPedId(), GetPedBoneIndex(GetPlayerPed(-1), 18905), 0.26, 0.06, 0.16, 320.0, 310.0, 0.0, true, true, false, true, 1, true)
     SetNuiFocus(true, true)
     display = true
 end
@@ -17,7 +17,7 @@ RegisterNUICallback('close', function()
     SetNuiFocus(false, false)
 	ClearPedTasks(PlayerPedId())
 	Citizen.Wait(200)
-	DeleteObject(newspaper)
+	DeleteObject(cardapiopaper)
     display = false
 end)
 
@@ -33,7 +33,7 @@ Citizen.CreateThread(function ()
 		for k, v in pairs(Config.Locations) do
 			local dist = #(pos - vector3(Config.Locations[k].Locations.x, Config.Locations[k].Locations.y, Config.Locations[k].Locations.z))
 			if dist < 1.5 then
-				DrawText3D(Config.Locations[k].Location.x, Config.Locations[k].Location.y, Config.Locations[k].Location.z + 0.5, "Aperte ~g~E~w~ ~n~ para abrir o Cardapio.")
+				DrawText3D(Config.Locations[k].CardapioLocation.x, Config.Locations[k].CardapioLocation.y, Config.Locations[k].CardapioLocation.z + 0.5, "Aperte ~g~E~w~ ~n~ para abrir o Cardapio.")
 				if IsControlJustReleased(0, 38) then
 					cRP.Open()
 				end
