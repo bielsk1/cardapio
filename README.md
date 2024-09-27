@@ -2,7 +2,7 @@
 
 # Script de Cardápio Interativo para GTA V (FiveM)
 
-Este script implementa um sistema de cardápio interativo para servidores de GTA V utilizando a plataforma FiveM. O jogador pode abrir um cardápio ao se aproximar de um local específico e interagir com o objeto "jornal" na tela.
+Este script implementa um sistema de cardápio interativo para servidores de GTA V utilizando a plataforma FiveM. O jogador pode abrir um cardápio.
 
 ## Funcionalidades
 
